@@ -1,0 +1,155 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Results</title>
+</head>
+<body>
+    <h1>Prediction Results</h1>
+    <p>Uploaded Video: {{ video_name }}</p>
+    <p>Selected Model: {{ selected_model }}</p>
+
+    <h2>Input Frames:</h2>
+    <div>
+        {% for i in range(1, 11) %}
+        <img src="{{ url_for('serve_output', filename=video_base_name + '/input_frame_' + i|string + '.png') }}" alt="Input Frame {{ i }}" style="width: 200px;">
+        {% endfor %}
+    </div>
+
+    <h2>Predicted Frames:</h2>
+    <div>
+        {% for i in range(1, 6) %}
+        <img src="{{ url_for('serve_output', filename=video_base_name + '/predicted_frame_' + i|string + '.png') }}" alt="Predicted Frame {{ i }}" style="width: 200px;">
+        {% endfor %}
+    </div>
+
+
+
+
+<h2>Predicted Video:</h2>
+<video controls width="500">
+    <source src="{{ url_for('serve_output', filename=video_base_name + '/predicted_video.mp4') }}" type="video/mp4">
+    Your browser does not support the video tag.
+</video>
+
+  
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Results</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background: linear-gradient(120deg, #0f0f1c, #1a1a2e);
+            color: #ffffff;
+            overflow: auto;  /* Enable scrolling */
+        }
+
+        h1 {
+            position: absolute;
+            top: 10%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 3rem;
+            text-align: center;
+            color: #00e5ff;
+            text-shadow: 0 0 10px rgba(0, 229, 255, 0.8), 0 0 20px rgba(0, 229, 255, 0.6);
+            animation: glow 3s infinite;
+        }
+
+        p {
+            text-align: center;
+            font-size: 1.5rem;
+            color: #6d6d94;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 2rem;
+            color: #00e5ff;
+            margin-top: 2rem;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        h4 {
+            text-align: center;
+            font-size: 1.3rem;
+            color: #00e5ff;
+            margin-top: 2rem;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .frame-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .frame-container img {
+            width: 200px;
+            margin: 10px;
+            border-radius: 10px;
+            transition: transform 2s ease-in-out;
+        }
+
+        video {
+            display: block;
+            margin: 2rem auto;
+            border-radius: 10px;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        @keyframes glow {
+            0% { text-shadow: 0 0 10px rgba(0, 229, 255, 0.8); }
+            50% { text-shadow: 0 0 20px rgba(0, 229, 255, 1); }
+            100% { text-shadow: 0 0 10px rgba(0, 229, 255, 0.8); }
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <h1>Prediction Results</h1>
+    <br>
+    <br><br><br><br><br><br><br>
+    <h4>Uploaded Video: {{ video_name }}</h4>
+    <p>Selected Model: {{ selected_model }}</p>
+
+    <!-- Input Frames Section -->
+    <h2>Input Frames:</h2>
+    <div class="frame-container" id="input-frames">
+        {% for i in range(1, 11) %}
+        <img src="{{ url_for('serve_output', filename=video_base_name + '/input_frame_' + i|string + '.png') }}" alt="Input Frame {{ i }}">
+        {% endfor %}
+    </div>
+
+    <!-- Predicted Frames Section -->
+    <h2>Predicted Frames:</h2>
+    <div class="frame-container" id="predicted-frames">
+        {% for i in range(1, 6) %}
+        <img src="{{ url_for('serve_output', filename=video_base_name + '/predicted_frame_' + i|string + '.png') }}" alt="Predicted Frame {{ i }}">
+        {% endfor %}
+    </div>
+
+    <h2>Predicted Video:</h2>
+    <video controls width="500">
+        <source src="{{ url_for('serve_output', filename=video_base_name + '/predicted_video.mp4') }}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    
+</body>
+</html>

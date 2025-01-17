@@ -1,0 +1,326 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Video Prediction</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background: linear-gradient(120deg, #0f0f1c, #1a1a2e);
+            color: #ffffff;
+            overflow: hidden;
+        }
+
+        h1 {
+            position: absolute;
+            top: 10%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 3rem;
+            text-align: center;
+            color: #00e5ff;
+            text-shadow: 0 0 10px rgba(0, 229, 255, 0.8), 0 0 20px rgba(0, 229, 255, 0.6);
+            animation: glow 3s infinite;
+        }
+
+
+        h3 {
+            position: absolute;
+            top: 10%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 2rem;
+            text-align: center;
+            color: #00e5ff;
+            text-shadow: 0 0 10px rgba(0, 229, 255, 0.8), 0 0 20px rgba(0, 229, 255, 0.6);
+            animation: glow 3s infinite;
+        }
+
+        form {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            padding: 30px;
+            background: rgba(30, 30, 47, 0.85);
+            border: 2px solid #00e5ff33;
+            border-radius: 15px;
+            box-shadow: 0 0 30px rgba(0, 229, 255, 0.2), 0 0 50px rgba(0, 229, 255, 0.4);
+            width: 400px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+            color: #00e5ff;
+        }
+
+        input[type="file"], select {
+            width: 100%;
+            padding: 10px;
+            margin: 15px 0;
+            border: none;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            color: #cccce9;
+            font-size: 1rem;
+            box-shadow: 0 0 10px rgba(0, 229, 255, 0.2);
+            text-align: center;
+        }
+
+        select {
+            position: relative;
+        }
+
+        select option {
+            background: rgba(255, 255, 255, 0.1);
+            color: rgb(183, 193, 240);
+            text-align: center;
+            padding: 10px;
+        }
+
+        select:hover, input[type="file"]:hover {
+            box-shadow: 0 0 15px rgba(0, 229, 255, 0.5);
+        }
+
+        p {
+            text-align: center; /* Centers the text */
+            font-size: 1.5rem; /* Sets the font size */
+            color: #6d6d94; /* Sets the text color */
+            animation: fadeIn 2s ease-in-out; /* Applies a fade-in animation */
+            margin: 10px 0; /* Adds some vertical spacing between paragraphs */
+        }
+
+
+        button {
+            width: 100%;
+            padding: 12px 20px;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 10px;
+            background: linear-gradient(90deg, #4caf50, #81c784);
+            color: white;
+            cursor: pointer;
+            box-shadow: 0 0 15px rgba(0, 255, 0, 0.5);
+            transition: 0.4s;
+        }
+
+       
+
+
+        button:hover {
+            background: linear-gradient(90deg, #388e3c, #66bb6a);
+            box-shadow: 0 0 25px rgba(0, 255, 0, 0.8);
+        }
+
+        @keyframes glow {
+            0% { text-shadow: 0 0 10px rgba(0, 229, 255, 0.8); }
+            50% { text-shadow: 0 0 20px rgba(0, 229, 255, 1); }
+            100% { text-shadow: 0 0 10px rgba(0, 229, 255, 0.8); }
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        body {
+            animation: fadeIn 2s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <h1>Video Prediction Model</h1><br><br><br>
+  
+<main>
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <label for="video">Choose a Video File to Upload</label> 
+        <input type="file" name="video" id="video" required> 
+        <label for="model">Select a Prediction Model</label>
+        <select name="model" id="model">
+            <option value="lstm">LSTM Model</option>
+            <option value="rnn">RNN Model</option>
+            <option value="transformer">Transformer Model</option>
+        </select>
+        <button type="submit">Upload and Predict</button>
+    </form>
+    </main>
+    <footer>
+        <div style="flex-grow: 1; display: flex; flex-direction: column; justify-content: flex-end; align-items: center;">
+          
+            <p>By: Nibras Aamir & Khadeeja Shah</p>
+            <p>Deep Learning for Perception</p>
+        </div>
+        </footer>
+</body>
+
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Video Prediction</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background: linear-gradient(120deg, #0f0f1c, #1a1a2e);
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* This ensures content stays on top, and footer stays at bottom */
+            overflow: hidden;
+        }
+
+        h1 {
+            position: absolute;
+            top: 10%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 3rem;
+            text-align: center;
+            color: #00e5ff;
+            text-shadow: 0 0 10px rgba(0, 229, 255, 0.8), 0 0 20px rgba(0, 229, 255, 0.6);
+            animation: glow 3s infinite;
+        }
+
+        h3 {
+            position: absolute;
+            top: 10%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 2rem;
+            text-align: center;
+            color: #00e5ff;
+            text-shadow: 0 0 10px rgba(0, 229, 255, 0.8), 0 0 20px rgba(0, 229, 255, 0.6);
+            animation: glow 3s infinite;
+        }
+
+        form {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            padding: 30px;
+            background: rgba(30, 30, 47, 0.85);
+            border: 2px solid #00e5ff33;
+            border-radius: 15px;
+            box-shadow: 0 0 30px rgba(0, 229, 255, 0.2), 0 0 50px rgba(0, 229, 255, 0.4);
+            width: 400px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+            color: #00e5ff;
+        }
+
+        input[type="file"], select {
+            width: 100%;
+            padding: 10px;
+            margin: 15px 0;
+            border: none;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            color: #cccce9;
+            font-size: 1rem;
+            box-shadow: 0 0 10px rgba(0, 229, 255, 0.2);
+            text-align: center;
+        }
+
+        select {
+            position: relative;
+        }
+
+        select option {
+            background: rgba(255, 255, 255, 0.1);
+            color: rgb(183, 193, 240);
+            text-align: center;
+            padding: 10px;
+        }
+
+        select:hover, input[type="file"]:hover {
+            box-shadow: 0 0 15px rgba(0, 229, 255, 0.5);
+        }
+
+        p {
+            text-align: center;
+            font-size: 1.5rem;
+            color: #6d6d94;
+            animation: fadeIn 2s ease-in-out;
+            margin: 10px 0;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px 20px;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 10px;
+            background: linear-gradient(90deg, #4caf50, #81c784);
+            color: white;
+            cursor: pointer;
+            box-shadow: 0 0 15px rgba(0, 255, 0, 0.5);
+            transition: 0.4s;
+        }
+
+        button:hover {
+            background: linear-gradient(90deg, #388e3c, #66bb6a);
+            box-shadow: 0 0 25px rgba(0, 255, 0, 0.8);
+        }
+
+        @keyframes glow {
+            0% { text-shadow: 0 0 10px rgba(0, 229, 255, 0.8); }
+            50% { text-shadow: 0 0 20px rgba(0, 229, 255, 1); }
+            100% { text-shadow: 0 0 10px rgba(0, 229, 255, 0.8); }
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        body {
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.6);
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <h1>Video Prediction Model</h1><br><br><br>
+  
+    <main>
+        <form action="/upload" method="post" enctype="multipart/form-data">
+            <label for="video">Choose a Video File to Upload</label> 
+            <input type="file" name="video" id="video" required> 
+            <label for="model">Select a Prediction Model</label>
+            <select name="model" id="model">
+                <option value="lstm">LSTM Model</option>
+                <option value="rnn">RNN Model</option>
+                <option value="transformer">Transformer Model</option>
+            </select>
+            <button type="submit">Upload and Predict</button>
+        </form>
+    </main>
+    
+    <footer>
+        <p>By: Nibras Aamir & Khadeeja Shah</p>
+      
+    </footer>
+</body>
+</html>
